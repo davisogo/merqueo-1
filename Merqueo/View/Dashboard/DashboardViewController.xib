@@ -1,13 +1,18 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13142" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12042"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DashboardViewController" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DashboardViewController" customModule="Merqueo" customModuleProvider="target">
             <connections>
+                <outlet property="segmentedControl" destination="eU5-rc-kYm" id="WsQ-lo-GUj"/>
+                <outlet property="tableView" destination="yr0-gS-IVp" id="n1c-8i-fdP"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -15,8 +20,42 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" delaysContentTouches="NO" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="yr0-gS-IVp">
+                    <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                    <color key="backgroundColor" red="0.91764705879999997" green="0.91764705879999997" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="sectionIndexTrackingBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="HU1-Kw-rgA"/>
+                        <outlet property="delegate" destination="-1" id="U7K-gz-VXq"/>
+                    </connections>
+                </tableView>
+                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="eU5-rc-kYm">
+                    <rect key="frame" x="58" y="28" width="259" height="29"/>
+                    <segments>
+                        <segment title="Todos"/>
+                        <segment title="Nombres"/>
+                        <segment title="Rating"/>
+                    </segments>
+                    <color key="tintColor" red="0.1235217525" green="0.13673461570000001" blue="0.17254901959999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <connections>
+                        <action selector="organizer:" destination="-1" eventType="valueChanged" id="zEb-S6-GZv"/>
+                    </connections>
+                </segmentedControl>
+            </subviews>
+            <color key="backgroundColor" red="0.91764705879999997" green="0.91764705879999997" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="yr0-gS-IVp" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="5eS-zH-vgq"/>
+                <constraint firstItem="yr0-gS-IVp" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="DD9-wb-pk5"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="eU5-rc-kYm" secondAttribute="trailing" constant="58" id="HAi-SX-arX"/>
+                <constraint firstItem="eU5-rc-kYm" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="58" id="Knt-V1-mna"/>
+                <constraint firstItem="yr0-gS-IVp" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="MFI-as-DCM"/>
+                <constraint firstItem="yr0-gS-IVp" firstAttribute="top" secondItem="eU5-rc-kYm" secondAttribute="bottom" constant="8" id="jo3-Bk-bpc"/>
+                <constraint firstItem="eU5-rc-kYm" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="8" id="njH-tQ-CsK"/>
+            </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="34.5" y="53.5"/>
         </view>
     </objects>
 </document>
